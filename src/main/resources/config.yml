@@ -1,0 +1,9 @@
+database:
+  host: "no"
+  port: 3306
+  database: "no"
+  username: "no"
+  password: "no"
+
+MESSAGES:
+  NO_PERMISSION: '&cYou dont have permission to perform this command.'

@@ -1,0 +1,4 @@
+name: SurvivalLevels
+version: '${project.version}'
+main: net.guildcraft.survivallevels.SurvivalLevels
+api-version: 1.20
