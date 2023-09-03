@@ -7,3 +7,14 @@ database:
 
 MESSAGES:
   NO_PERMISSION: '&cYou dont have permission to perform this command.'
+
+level_requirements:
+  2: 2500
+  3: 7500
+  4: 15000
+  5: 25000
+  6: 50000
+  7: 150000
+  8: 250000
+  9: 500000
+  10: 1000000

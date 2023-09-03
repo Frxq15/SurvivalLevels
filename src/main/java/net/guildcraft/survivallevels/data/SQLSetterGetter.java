@@ -13,7 +13,7 @@ public class SQLSetterGetter {
     private SQLManager sqlManager = plugin.getSQLManager();
     public boolean playerExists(UUID uuid) {
         try {
-            PreparedStatement statement = sqlManager.getConnection().prepareStatement("SELECT * FROM users WHERE uuid=?");
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement("SELECT * FROM survivallevels_users WHERE uuid=?");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
             if (results.next()) {
@@ -27,7 +27,7 @@ public class SQLSetterGetter {
     public void createTable(String table) {
         Bukkit.getScheduler().runTaskAsynchronously(plugin.getInstance(), () -> {
             try {
-                PreparedStatement statement = sqlManager.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `" + table + "` (uuid VARCHAR(36) PRIMARY KEY, level INT(11), xp level BIGINT(36));");
+                PreparedStatement statement = sqlManager.getConnection().prepareStatement("CREATE TABLE IF NOT EXISTS `" + table + "` (uuid VARCHAR(36) PRIMARY KEY, slevel INT(11), xp BIGINT(36));");
                 statement.executeUpdate();
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -44,7 +44,7 @@ public class SQLSetterGetter {
         }
         try {
             PreparedStatement insert = sqlManager.getConnection()
-                    .prepareStatement("INSERT INTO users (uuid,level,xp) VALUES (?,?,?)");
+                    .prepareStatement("INSERT INTO survivallevels_users (uuid,slevel,xp) VALUES (?,?,?)");
             insert.setString(1, uuid.toString());
             insert.setInt(2, 1);
             insert.setInt(3, 0);
@@ -63,7 +63,7 @@ public class SQLSetterGetter {
             return;
         }
         try {
-            PreparedStatement statement = sqlManager.getConnection().prepareStatement("UPDATE survivallevels_users SET level=? WHERE uuid=?");
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement("UPDATE survivallevels_users SET slevel=? WHERE uuid=?");
             statement.setInt(1, level);
             statement.setString(2, uuid.toString());
             statement.executeUpdate();
@@ -99,11 +99,11 @@ public class SQLSetterGetter {
             return 0;
         }
         try {
-            PreparedStatement statement = sqlManager.getConnection().prepareStatement("SELECT level FROM users WHERE uuid=?");
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement("SELECT slevel FROM survivallevels_users WHERE uuid=?");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
             results.next();
-            return results.getInt("level");
+            return results.getInt("slevel");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -119,7 +119,7 @@ public class SQLSetterGetter {
             return 0;
         }
         try {
-            PreparedStatement statement = sqlManager.getConnection().prepareStatement("SELECT xp FROM users WHERE uuid=?");
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement("SELECT xp FROM survivallevels_users WHERE uuid=?");
             statement.setString(1, uuid.toString());
             ResultSet results = statement.executeQuery();
             results.next();
