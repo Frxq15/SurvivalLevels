@@ -8,6 +8,8 @@ database:
 MESSAGES:
   NO_PERMISSION: '&cYou dont have permission to perform this command.'
 
+max_level: 10
+
 level_requirements:
   2: 2500
   3: 7500

@@ -81,7 +81,7 @@ public class SQLSetterGetter {
             return;
         }
         try {
-            PreparedStatement statement = sqlManager.getConnection().prepareStatement("UPDATE survivallevels_users SET level=? WHERE uuid=?");
+            PreparedStatement statement = sqlManager.getConnection().prepareStatement("UPDATE survivallevels_users SET xp=? WHERE uuid=?");
             statement.setInt(1, xp);
             statement.setString(2, uuid.toString());
             statement.executeUpdate();

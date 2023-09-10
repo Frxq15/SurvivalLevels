@@ -5,6 +5,7 @@ import net.guildcraft.survivallevels.data.SQLListeners;
 import net.guildcraft.survivallevels.data.SQLManager;
 import net.guildcraft.survivallevels.data.SQLSetterGetter;
 import net.guildcraft.survivallevels.gui.GUIListeners;
+import net.guildcraft.survivallevels.level.LevelUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +18,7 @@ public final class SurvivalLevels extends JavaPlugin {
     private final NumberFormat NUMBER_FORMAT = NumberFormat.getNumberInstance(Locale.ENGLISH);
     private SQLManager sqlManager;
     private SQLSetterGetter sqlSetterGetter;
+    private LevelUtils levelUtils;
 
     @Override
     public void onEnable() {
@@ -40,6 +42,7 @@ public final class SurvivalLevels extends JavaPlugin {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
+        levelUtils = new LevelUtils(this);
         sqlSetterGetter = new SQLSetterGetter();
         sqlSetterGetter.createTable("survivallevels_users");
         Bukkit.getPluginManager().registerEvents(new SQLListeners(), this);
@@ -59,4 +62,5 @@ public final class SurvivalLevels extends JavaPlugin {
     public SQLSetterGetter getSQLSetterGetter() {
         return sqlSetterGetter;
     }
+    public LevelUtils getLevelUtils() { return levelUtils;}
 }
