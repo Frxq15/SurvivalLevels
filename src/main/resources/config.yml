@@ -20,3 +20,12 @@ level_requirements:
   8: 250000
   9: 500000
   10: 1000000
+
+level_rewards:
+  2:
+    commands:
+      - 'msg %player% you reached level 2'
+    message:
+      - ''
+      - '&bYou reached level 2'
+      - ''
