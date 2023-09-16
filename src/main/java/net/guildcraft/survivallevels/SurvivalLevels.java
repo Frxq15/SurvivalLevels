@@ -1,6 +1,7 @@
 package net.guildcraft.survivallevels;
 
 import net.guildcraft.survivallevels.command.levelCommand;
+import net.guildcraft.survivallevels.data.GPlayer;
 import net.guildcraft.survivallevels.data.SQLListeners;
 import net.guildcraft.survivallevels.data.SQLManager;
 import net.guildcraft.survivallevels.data.SQLSetterGetter;
@@ -19,6 +20,7 @@ public final class SurvivalLevels extends JavaPlugin {
     private SQLManager sqlManager;
     private SQLSetterGetter sqlSetterGetter;
     private LevelUtils levelUtils;
+    private int savingTask;
 
     @Override
     public void onEnable() {
@@ -32,6 +34,9 @@ public final class SurvivalLevels extends JavaPlugin {
 
     @Override
     public void onDisable() {
+        Bukkit.getScheduler().cancelTask(savingTask);
+        savingTask = 0;
+        GPlayer.getAllPlayerData().forEach((uuid, playerData) -> playerData.uploadPlayerData(this));
         log("Plugin disabled.");
         // Plugin shutdown logic
     }
@@ -42,6 +47,7 @@ public final class SurvivalLevels extends JavaPlugin {
             Bukkit.getPluginManager().disablePlugin(this);
             return;
         }
+        savingTask = startSavingTask();
         levelUtils = new LevelUtils(this);
         sqlSetterGetter = new SQLSetterGetter();
         sqlSetterGetter.createTable("survivallevels_users");
@@ -63,4 +69,12 @@ public final class SurvivalLevels extends JavaPlugin {
         return sqlSetterGetter;
     }
     public LevelUtils getLevelUtils() { return levelUtils;}
+
+    private int startSavingTask() {
+        return Bukkit.getScheduler().runTaskTimerAsynchronously(this, () -> {
+            GPlayer.getAllPlayerData().forEach((uuid, player) -> {
+                player.uploadPlayerData(this);
+            });
+        }, 20L * 60L * 5, 20L * 60L * 10).getTaskId();
+    }
 }
