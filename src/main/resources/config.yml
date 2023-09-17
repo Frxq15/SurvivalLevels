@@ -21,6 +21,7 @@ level_requirements:
   9: 500000
   10: 1000000
 
+
 level_rewards:
   2:
     commands:
@@ -29,3 +30,31 @@ level_rewards:
       - ''
       - '&bYou reached level 2'
       - ''
+
+lore_outcomes:
+  pass: '&aYou have completed this level.'
+  fail: '&cEarn xp to unlock this level.'
+
+level_items:
+  menu_texture: 'https://textures.minecraft.net/texture/6f9a2c9e35b7381efcc3851b664cd8de21ffc6f377070f8193cdaf18cd95876c'
+  1:
+    NAME: '&a&lLevel 1'
+    TEXTURE: 'https://textures.minecraft.net/texture/e0a4c94dd65a7cadc4172cedf3990a8542772bb113cdf1a0f78ef652c6abe6cb'
+    LORE:
+      - '&7This level is unlocked by default, earn xp'
+      - '&7through different ways to unlock new levels.'
+  2:
+    NAME: '&5&lLevel 2'
+    TEXTURE: 'https://textures.minecraft.net/texture/a47c55064f1d07625af05cdbc0fc7c84173b10541024c8855ed7132ca7767246' #https://minecraft-heads.com/custom-heads/alphabet/19252-plush-2
+    LORE:
+      - '&7You will automatically unlock this level and its perks'
+      - '&7after you have earned the required amount of level experience.'
+      - ''
+      - '&7XP Required: &b%xp_required%'
+      - ''
+      - '&7Unlocks:'
+      - '&a5% Increase &7for gaining level experience'
+      - '&dAuction House &7full access'
+      - '&b10 &7Legacy Coins'
+      - ''
+      - '%lore_outcome%'
