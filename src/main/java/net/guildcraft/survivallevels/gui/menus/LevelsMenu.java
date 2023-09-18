@@ -54,14 +54,12 @@ public class LevelsMenu extends GUITemplate {
         String name = plugin.colourize(plugin.getConfig().getString("level_items."+level+".NAME"));
 
         for(String lines : plugin.getConfig().getStringList("level_items."+level+".LORE")) {
-            if(gPlayer.getLevel() > 1) {
             lines = lines.replace("%xp_required%", plugin.getConfig().getInt("level_requirements." + level) + "");
             if (gPlayer.getLevel() >= level) {
                 lines = lines.replace("%lore_outcome%", plugin.getConfig().getString("lore_outcomes.pass"));
             } else {
                 lines = lines.replace("%lore_outcome%", plugin.getConfig().getString("lore_outcomes.pass"));
             }
-         }
             lore.add(plugin.colourize(lines));
         }
 
