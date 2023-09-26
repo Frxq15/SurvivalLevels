@@ -25,10 +25,66 @@ level_requirements:
 level_rewards:
   2:
     commands:
-      - 'msg %player% you reached level 2'
+      - 'lp user %player% parent add sl-2'
     message:
       - ''
-      - '&bYou reached level 2'
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b2!'
+      - ''
+  3:
+    commands:
+      - 'lp user %player% parent add sl-3'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b3!'
+      - ''
+  4:
+    commands:
+      - 'lp user %player% parent add sl-4'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b4!'
+      - ''
+  5:
+    commands:
+      - 'lp user %player% parent add sl-5'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b5!'
+      - ''
+  6:
+    commands:
+      - 'lp user %player% parent add sl-6'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b6!'
+      - ''
+  7:
+    commands:
+      - 'lp user %player% parent add sl-7'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b7!'
+      - ''
+  8:
+    commands:
+      - 'lp user %player% parent add sl-8'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b8!'
+      - ''
+  9:
+    commands:
+      - 'lp user %player% parent add sl-9'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b9!'
+      - ''
+  10:
+    commands:
+      - 'lp user %player% parent add sl-10'
+    message:
+      - ''
+      - '&f[&bSurvival&f] &bYou reached Survival Level &b10!'
       - ''
 
 lore_outcomes:
