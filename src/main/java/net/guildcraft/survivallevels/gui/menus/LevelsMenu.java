@@ -6,9 +6,11 @@ import net.guildcraft.survivallevels.gui.GUITemplate;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.profile.PlayerProfile;
 import org.bukkit.profile.PlayerTextures;
@@ -25,7 +27,7 @@ public class LevelsMenu extends GUITemplate {
     private final GPlayer gPlayer;
 
     public LevelsMenu(SurvivalLevels plugin, Player player) {
-        super(plugin, 4, "&8Levels");
+        super(plugin, 5, "&8Levels");
         this.plugin = plugin;
         this.player = player;
         this.gPlayer = GPlayer.getPlayerData(plugin, player.getUniqueId());
@@ -42,6 +44,10 @@ public class LevelsMenu extends GUITemplate {
         setItem(22, createLevelItem(8));
         setItem(23, createLevelItem(9));
         setItem(24, createLevelItem(10));
+        setItem(40, createCloseItem(), p -> {
+            p.getOpenInventory().close();
+            new MainMenu(plugin, p).open(p);
+        });
     }
     public ItemStack createLevelItem(int level) {
         List<String> lore = new ArrayList<String>();
@@ -78,6 +84,16 @@ public class LevelsMenu extends GUITemplate {
 
         i.setItemMeta(meta);
 
+        return i;
+    }
+    public ItemStack createCloseItem() {
+        final ItemStack i = new ItemStack(Material.ARROW, 1);
+        String name = "&cReturn";
+        final ItemMeta meta = i.getItemMeta();
+        meta.setDisplayName(plugin.colourize(name));
+        meta.addEnchant(Enchantment.DURABILITY, 1, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        i.setItemMeta(meta);
         return i;
     }
 }

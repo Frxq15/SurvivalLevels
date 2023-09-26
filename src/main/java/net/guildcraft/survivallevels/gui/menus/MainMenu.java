@@ -26,7 +26,7 @@ public class MainMenu extends GUITemplate {
     private final GPlayer gPlayer;
 
     public MainMenu(SurvivalLevels plugin, Player player) {
-        super(plugin, 3, "&8Survival Levels");
+        super(plugin, 5, "&8Survival Levels");
         this.plugin = plugin;
         this.player = player;
         this.gPlayer = GPlayer.getPlayerData(plugin, player.getUniqueId());
@@ -56,7 +56,7 @@ public class MainMenu extends GUITemplate {
         lore.add(plugin.colourize("&7through many different ways such as fishing, killing mobs,"));
         lore.add(plugin.colourize("&7player kills and much more..."));
         lore.add(plugin.colourize(""));
-        lore.add(plugin.colourize("&aLevels increase automatically."));
+        lore.add(plugin.colourize("&eLevels increase automatically."));
 
         meta.setLore(lore);
         meta.setDisplayName(name);
