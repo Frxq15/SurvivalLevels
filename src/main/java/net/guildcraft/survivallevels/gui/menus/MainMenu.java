@@ -26,7 +26,7 @@ public class MainMenu extends GUITemplate {
     private final GPlayer gPlayer;
 
     public MainMenu(SurvivalLevels plugin, Player player) {
-        super(plugin, 5, "&8Survival Levels");
+        super(plugin, 3, "&8Survival Levels");
         this.plugin = plugin;
         this.player = player;
         this.gPlayer = GPlayer.getPlayerData(plugin, player.getUniqueId());

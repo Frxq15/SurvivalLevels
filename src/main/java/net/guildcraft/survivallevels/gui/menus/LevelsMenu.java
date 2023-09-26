@@ -72,7 +72,7 @@ public class LevelsMenu extends GUITemplate {
             if (gPlayer.getLevel() >= level) {
                 lines = lines.replace("%lore_outcome%", plugin.getConfig().getString("lore_outcomes.pass"));
             } else {
-                lines = lines.replace("%lore_outcome%", plugin.getConfig().getString("lore_outcomes.pass"));
+                lines = lines.replace("%lore_outcome%", plugin.getConfig().getString("lore_outcomes.fail"));
             }
             lore.add(plugin.colourize(lines));
         }
@@ -91,8 +91,6 @@ public class LevelsMenu extends GUITemplate {
         String name = "&cReturn";
         final ItemMeta meta = i.getItemMeta();
         meta.setDisplayName(plugin.colourize(name));
-        meta.addEnchant(Enchantment.DURABILITY, 1, true);
-        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         i.setItemMeta(meta);
         return i;
     }
