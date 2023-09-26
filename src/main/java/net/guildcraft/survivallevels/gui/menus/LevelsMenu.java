@@ -34,6 +34,14 @@ public class LevelsMenu extends GUITemplate {
     public void initialize() {
         setItem(11, createLevelItem(1));
         setItem(12, createLevelItem(2));
+        setItem(13, createLevelItem(3));
+        setItem(14, createLevelItem(4));
+        setItem(15, createLevelItem(5));
+        setItem(20, createLevelItem(6));
+        setItem(21, createLevelItem(7));
+        setItem(22, createLevelItem(8));
+        setItem(23, createLevelItem(9));
+        setItem(24, createLevelItem(10));
     }
     public ItemStack createLevelItem(int level) {
         List<String> lore = new ArrayList<String>();
