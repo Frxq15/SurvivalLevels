@@ -1,5 +1,6 @@
 package net.guildcraft.survivallevels;
 
+import net.guildcraft.survivallevels.command.givelevelxpCommand;
 import net.guildcraft.survivallevels.command.levelCommand;
 import net.guildcraft.survivallevels.data.GPlayer;
 import net.guildcraft.survivallevels.data.SQLListeners;
@@ -54,6 +55,7 @@ public final class SurvivalLevels extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new SQLListeners(), this);
         Bukkit.getPluginManager().registerEvents(new GUIListeners(), this);
         getCommand("level").setExecutor(new levelCommand());
+        getCommand("givelevelxp").setExecutor(new givelevelxpCommand());
     }
     public static SurvivalLevels getInstance() { return instance; }
     public String format(int number) {

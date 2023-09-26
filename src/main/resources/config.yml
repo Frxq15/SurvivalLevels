@@ -7,6 +7,8 @@ database:
 
 MESSAGES:
   NO_PERMISSION: '&cYou dont have permission to perform this command.'
+  PLAYER_NOT_FOUND: '&cThe player you specified could not be found.'
+  XP_ADDED: '&cYou added %amount%xp to %player%.'
 
 max_level: 10
 

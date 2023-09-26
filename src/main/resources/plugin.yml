@@ -8,3 +8,6 @@ commands:
   level:
     description: level command
     aliases: [levels, survivallevel, survivallevels, slevel]
+  givelevelxp:
+    description: givelevelxp command
+    aliases: [addlevelxp]
